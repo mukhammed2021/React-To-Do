@@ -1,6 +1,14 @@
-const Action = ({ className }) => {
+const Action = ({ name, className, handleDelete, setIsOpenEdit }) => {
    return (
-      <button type="button" className={`${className}`}>
+      <button
+         type="button"
+         onClick={
+            name === "edit"
+               ? () => setIsOpenEdit((isEdit) => !isEdit)
+               : handleDelete
+         }
+         className={`${className}`}
+      >
          <svg className={`h-[1.125rem] w-[1.125rem] text-[#cdcdcd]`}>
             <use xlinkHref={`#${className}`} />
          </svg>
