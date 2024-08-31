@@ -8,7 +8,7 @@ const Notes = ({
    setNotes,
 }) => {
    return (
-      <ul className="w-full max-w-[32.5rem] flex-grow">
+      <ul className="mb-8 w-full max-w-[32.5rem] flex-grow">
          {filteredTodos.map((note) => (
             <NoteItem
                key={note.id}

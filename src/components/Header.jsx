@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Input from "./Input";
 import Select from "./Select";
+import Theme from "./Theme";
 
 const options = [
    { label: "All", value: 1 },
@@ -8,11 +9,11 @@ const options = [
    { label: "Incomplete", value: 3 },
 ];
 
-const Header = ({ changeFilter, query, setQuery }) => {
+const Header = ({ changeFilter, query, setQuery, theme, setTheme }) => {
    const [value, setValue] = useState(options[0]);
 
    return (
-      <div className="flex w-full items-center gap-4 [&:not(:last-child)]:mb-[1.875rem]">
+      <div className="flex w-full flex-wrap-reverse justify-end items-center gap-4 [&:not(:last-child)]:mb-[1.875rem]">
          <Input
             name="search"
             className="flex-grow"
@@ -28,6 +29,7 @@ const Header = ({ changeFilter, query, setQuery }) => {
             options={options}
             changeFilter={changeFilter}
          />
+         <Theme theme={theme} setTheme={setTheme} />
       </div>
    );
 };

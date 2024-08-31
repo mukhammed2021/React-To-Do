@@ -59,7 +59,7 @@ const Select = ({ value, onChange, options, changeFilter }) => {
          onBlur={() => setIsOpen(false)}
          onClick={() => setIsOpen((prev) => !prev)}
          tabIndex={0}
-         className={`relative flex min-h-[2.375rem] w-40 items-center gap-2 rounded-[.3125rem] border-2 px-[.625rem] py-1 shadow-[0_0_4px_0_#6c63ff] outline-none focus-visible:border-purple focus-visible:bg-[#534CC2] focus-visible:shadow-none ${isOpen ? "border-purple bg-[#534CC2] shadow-none" : "border-purple bg-purple"}`}
+         className={`relative sm:flex-grow flex min-h-[2.375rem] w-40 items-center gap-2 rounded-[.3125rem] border-2 px-[.625rem] py-1 shadow-[0_0_4px_0_#6c63ff] outline-none focus-visible:border-purple focus-visible:bg-[#534CC2] focus-visible:shadow-none ${isOpen ? "border-purple bg-[#534CC2] shadow-none" : "border-purple bg-purple"}`}
       >
          <span className="grow text-lg uppercase leading-none text-white">
             {value?.label}

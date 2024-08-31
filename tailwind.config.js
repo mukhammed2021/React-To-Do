@@ -13,6 +13,10 @@ export default {
          white: "#f7f7f7",
          black: "#252525",
       },
+      screens: {
+         sm: { max: "484px" },
+      },
    },
+   darkMode: "selector",
    plugins: [],
 };

@@ -32,7 +32,7 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                />
                {!isOpenEdit && (
                   <p
-                     className={`flex-grow pl-4 text-xl uppercase ${note.checked ? "text-black/50 line-through" : ""}`}
+                     className={`flex-grow pl-4 text-xl uppercase dark:text-white ${note.checked ? "text-black/50 line-through" : ""}`}
                   >
                      {note.text}
                   </p>
@@ -89,23 +89,25 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                      onChange={(e) => setEditNote(e.target.value)}
                      className="ml-4 mr-11 flex-grow bg-white text-xl uppercase focus-visible:rounded focus-visible:caret-purple focus-visible:outline focus-visible:outline-purple"
                   />
-                  <button
-                     onClick={() => {
-                        setNotes(
-                           notes.map((todo) =>
-                              todo.id === note.id
-                                 ? { ...todo, text: editNote }
-                                 : todo,
-                           ),
-                        );
-                        setIsOpenEdit(false);
-                     }}
-                     className="before:absolute before:right-7 before:top-2/4 before:h-4 before:w-3 before:-translate-y-2/3 before:rotate-45 before:border-b-4 before:border-r-4 before:border-purple"
-                  ></button>
-                  <button
-                     onClick={() => setIsOpenEdit(false)}
-                     className="before:absolute before:right-1 before:top-2/4 before:h-4 before:w-1 before:-translate-y-2/4 before:rotate-45 before:bg-[#e50000] after:absolute after:right-1 after:top-2/4 after:h-4 after:w-1 after:-translate-y-2/4 after:-rotate-45 after:bg-[#e50000]"
-                  ></button>
+                  <div className="flex items-center gap-[.625rem]">
+                     <button
+                        onClick={() => {
+                           setNotes(
+                              notes.map((todo) =>
+                                 todo.id === note.id
+                                    ? { ...todo, text: editNote }
+                                    : todo,
+                              ),
+                           );
+                           setIsOpenEdit(false);
+                        }}
+                        className="relative h-5 w-5 before:absolute before:bottom-2/4 before:left-2/4 before:h-4 before:w-[.625rem] before:-translate-x-2/4 before:translate-y-2/4 before:rotate-45 before:border-b-4 before:border-r-4 before:border-purple"
+                     ></button>
+                     <button
+                        onClick={() => setIsOpenEdit(false)}
+                        className="relative h-5 w-5 before:absolute before:left-2/4 before:top-0 before:h-full before:w-1 before:-translate-x-2/4 before:rotate-45 before:bg-[#e50000] after:absolute after:left-2/4 after:top-0 after:h-full after:w-1 after:-translate-x-2/4 after:-rotate-45 after:bg-[#e50000]"
+                     ></button>
+                  </div>
                </>
             ) : (
                isMobile() && (
