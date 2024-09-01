@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { isMobile } from "../functions";
 import Checkbox from "./Checkbox";
 import Action from "./Action";
