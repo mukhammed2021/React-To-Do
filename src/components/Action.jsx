@@ -1,4 +1,4 @@
-const Action = ({ editRef, name, className, handleDelete, setIsOpenEdit }) => {
+const Action = ({ name, className, handleDelete, setIsOpenEdit }) => {
    return (
       <button
          type="button"

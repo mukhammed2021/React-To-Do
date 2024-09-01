@@ -69,7 +69,6 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                !isMobile() && (
                   <div className="flex items-center gap-[.625rem]">
                      <Action
-                        editRef={editRef}
                         name="edit"
                         className="edit"
                         setIsOpenEdit={setIsOpenEdit}
