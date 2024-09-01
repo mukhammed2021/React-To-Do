@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { isMobile } from "../functions";
 import Checkbox from "./Checkbox";
 import Action from "./Action";
@@ -32,7 +32,7 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                />
                {!isOpenEdit && (
                   <p
-                     className={`flex-grow pl-4 text-xl uppercase dark:text-white ${note.checked ? "text-black/50 line-through" : ""}`}
+                     className={`flex-grow pl-4 text-xl uppercase dark:text-white ${note.checked ? "text-black/50 line-through dark:text-white/50" : ""}`}
                   >
                      {note.text}
                   </p>
@@ -44,7 +44,7 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                      type="text"
                      value={editNote}
                      onChange={(e) => setEditNote(e.target.value)}
-                     className="ml-4 mr-11 flex-grow bg-white text-xl uppercase focus-visible:rounded focus-visible:caret-purple focus-visible:outline focus-visible:outline-purple"
+                     className="ml-4 mr-11 flex-grow bg-white text-xl uppercase focus-visible:rounded focus-visible:caret-purple focus-visible:outline focus-visible:outline-purple dark:bg-black dark:text-white"
                   />
                   <button
                      onClick={() => {
@@ -69,6 +69,7 @@ const NoteItem = ({ note, toggleNote, handleDelete, notes, setNotes }) => {
                !isMobile() && (
                   <div className="flex items-center gap-[.625rem]">
                      <Action
+                        editRef={editRef}
                         name="edit"
                         className="edit"
                         setIsOpenEdit={setIsOpenEdit}
